@@ -1,0 +1,27 @@
+{% extends 'bake.html' %}
+{% load static %}
+{% block navigation %}
+<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+    <li><a href="/bake" class="nav-link px-2 link-dark">Bake</a></li>
+    <li><a href="/shelf" class="nav-link px-2 link-secondary">Shelf</a></li>
+    <li><a href="/about" class="nav-link px-2 link-dark">About</a></li>
+</ul>
+{% endblock %}
+{% block content%}
+<div class="container">
+    <div class="row">
+{% for cake in cakes %}
+    <div class="col">
+        <div class="card" style="width: 18rem; height: 18rem;">
+            <a href="{% url 'shelf:cake' cake.pk %}">
+                <img src="{% static cake.img %}" class="card-img-top" >
+                <div class="card-body">
+                    <p class="card-text text-center">{{ cake }}</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'bake.html' %}
+{% load static %}
+{% block navigation %}
+<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+    <li><a href="/bake" class="nav-link px-2 link-dark">Bake</a></li>
+    <li><a href="/shelf" class="nav-link px-2 link-dark">Shelf</a></li>
+    <li><a href="/about" class="nav-link px-2 link-secondary">About</a></li>
+</ul>
+{% endblock %}
+{% block content%}
+    <p class="text-center mt-5">Cake Time! is a small pet project of Artem Podkolzin.</p>
+    <p class="text-center">If you like it, please consider checking my github.</p>
+
+    <div class="container w-25">
+    <div class="row justify-content-center">
+    <div class="col-auto m-4 text-center">
+        <a href="https://github.com/Podkosa">
+        <img class="" src="{% static 'github.png' %}" width="70" height="70" alt="Github">
+        </a>
+    </div>
+    </div>
+    </div>
+{% endblock %}

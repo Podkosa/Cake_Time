@@ -1,0 +1,33 @@
+{% extends 'bake.html' %}
+{% load static %}
+{% block navigation %}
+<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+    <li><a href="/bake" class="nav-link px-2 link-dark">Bake</a></li>
+    <li><a href="/shelf" class="nav-link px-2 link-secondary">Shelf</a></li>
+    <li><a href="/about" class="nav-link px-2 link-dark">About</a></li>
+</ul>
+{% endblock %}
+{% block content%}
+<h1 class="text-center mt-5">{{cake}}</h1>
+<div class="container w-auto">
+<div class="row justify-content-center">
+<div class="col-auto m-4 text-center align-items-center">
+    <img class="rounded mx-auto d-block" src="{% static cake.img %}">
+</div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-auto m-3 text-center align-items-center">
+        <p>Ingredients:<br></p>
+        {{ingredients|join:", "}}
+</div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-auto m-4 text-center align-items-center">
+    <p>Don't like this cake? Try baking another.</p>
+    <a href="{% url 'bake:cakehome' %}">
+    <button class="btn btn-outline-primary btn-lg px-4 gap-3" type="submit">To bakery</button>
+    </a>
+</div>
+</div>
+</div>
+{% endblock %}

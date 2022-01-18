@@ -1,0 +1,63 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/bootstrap.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/theme.css' %}">
+<link rel="icon" href="{% static 'logo.png'%}">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cake Time!</title>
+  </head>
+  <body class="overflow-scroll">
+    <header class="p-3 mb-3 border-bottom">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+                <img class="me-3" src="{% static 'logo.png' %}" alt width="60" height="60">
+            </a>
+            {% block navigation %}
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="/bake" class="nav-link px-2 link-secondary">Bake</a></li>
+                <li><a href="/shelf" class="nav-link px-2 link-dark">Shelf</a></li>
+                <li><a href="/about" class="nav-link px-2 link-dark">About</a></li>
+            </ul>
+            {% endblock %}
+            </div>
+        </div>
+    </header>
+    <main>
+            {% block content%}
+            <h1 class="text-center mt-5">What do you want in your cake today?</h1>
+            <div class="container w-25">
+            <div class="row justify-content-center">
+            <div class="col-auto m-4">
+            <form action="/bake/cake" method="get" id="bake">
+            {% for ingredient in Ingredients %}
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="{{ingredient}}" value="{{ingredient.id}}">
+                <label class="form-check-label" for="{{ingredient}}">
+                {{ ingredient.ingredient_name }}
+                </label>
+            </div>
+            {% endfor %}
+            <button class="btn btn-primary btn-lg px-4 gap-3 mt-4" type="submit">Bake</button>
+            </form>    
+            </div>
+            </div>
+            </div>
+            {% endblock %}
+
+    </main>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+
+        <footer class="footer-1  py-3 my-4 border-top align-items-center text-nowrap">
+            <div class="col-md-4 m-auto flex-grow-1 text-center">
+                <span class="text-muted" style="font-size: 30px">♨<span style="font-size: 13px"> 2021 No copyrights, unfortunately, but did you know there is an UTF-8 symbol for Hot Springs?</span></span>
+            </div>
+        </footer>
+
+</html>

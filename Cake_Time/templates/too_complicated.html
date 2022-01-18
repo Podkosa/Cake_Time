@@ -1,0 +1,18 @@
+{% extends 'bake.html' %}
+{% load static %}
+{% block content%}
+    <h1 class="text-center mt-5">That's too hard!<br>Our best chef couldn't make that.<br></h1>
+    <div class="container w-25">
+    <div class="row justify-content-center">
+    <div class="col-auto m-4 text-center">
+        <a href="https://www.freepik.com/photos/people">
+        <!-- Image source attribution =) -->
+        <img class="" src="{% static 'too-complicated.png' %}" width="400" height="400" alt="Image source">
+        </a>
+        <a href="{% url 'bake:cakehome' %}">
+        <button class="btn btn-primary btn-lg px-4 gap-3 mt-4" type="submit">Try again</button>
+        </a>
+    </div>
+    </div>
+    </div>
+{% endblock %}
